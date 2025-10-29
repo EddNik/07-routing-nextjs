@@ -1,0 +1,38 @@
+{
+  "name": "07-routing-nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "push": "git add .; git commit -m 'update'; git push;"
+  },
+  "dependencies": {
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "next": "16.0.0",
+    "@tanstack/react-query": "^5.90.5",
+    "@tanstack/react-query-devtools": "^5.90.2",
+    "axios": "^1.12.2",
+    "react-hot-toast": "^2.6.0",
+    "react-paginate": "^8.3.0",
+    "use-debounce": "^10.0.6",
+    "clsx": "^2.1.1",
+    "formik": "^2.4.6",
+    "modern-normalize": "^3.0.1",
+    "yup": "^1.7.1"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.0.0",
+    "@eslint/eslintrc": "^3",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.6.2"
+  }
+}
