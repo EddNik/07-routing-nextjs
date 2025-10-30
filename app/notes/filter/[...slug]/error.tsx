@@ -1,6 +1,6 @@
 "use client";
 
-import css from "../ErrorMessage.module.css";
+import css from "../../../ErrorMessage.module.css";
 
 interface ErrorProps {
   error: Error;

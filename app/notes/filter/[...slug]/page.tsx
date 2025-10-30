@@ -1,6 +1,6 @@
 import { getNotes } from "@/lib/api";
 import { NoteTag } from "@/types/note";
-import NotesClient from "../../Notes.client";
+import NotesClient from "./Notes.client";
 import {
   dehydrate,
   HydrationBoundary,

@@ -14,7 +14,7 @@ import NoteList from "@/components/NoteList/NoteList";
 import NoteForm from "@/components/NoteForm/NoteForm";
 import Modal from "@/components/Modal/Modal";
 import Error from "./error";
-import Loader from "../loading";
+import Loader from "../../../loading";
 
 interface NotesClientProps {
   tag?: NoteTag | "Choose";
