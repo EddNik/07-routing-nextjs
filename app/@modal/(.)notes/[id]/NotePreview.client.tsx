@@ -5,6 +5,7 @@ import { fetchNoteById } from "@/lib/api";
 import { useParams, useRouter } from "next/navigation";
 import Modal from "@/components/Modal/Modal";
 import Error from "./error";
+import Loader from "@/app/loading";
 
 function NotePreviewClient() {
   const { id } = useParams<{ id: string }>();
@@ -37,16 +38,15 @@ function NotePreviewClient() {
 
   return (
     <Modal onClose={onClose}>
-      {isLoading && <p>Loading, please wait...</p>}
-      {isError && <Error error={error} />}
       <div className={css.container}>
+        {isLoading && <Loader />}
+        {isError && <Error error={error} />}
         {note && (
           <div className={css.item}>
             <div className={css.header}>
               <h2>{note.title}</h2>
             </div>
             <p className={css.content}>{note.content}</p>
-            <p className={css.date}>{note.createdAt}</p>
             <p className={css.date}>{formatDate(note.createdAt)}</p>
           </div>
         )}

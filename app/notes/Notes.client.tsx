@@ -13,6 +13,8 @@ import Pagination from "@/components/Pagination/Pagination";
 import NoteList from "@/components/NoteList/NoteList";
 import NoteForm from "@/components/NoteForm/NoteForm";
 import Modal from "@/components/Modal/Modal";
+import Error from "./error";
+import Loader from "../loading";
 
 interface NotesClientProps {
   tag?: NoteTag | "Choose";
@@ -24,7 +26,7 @@ function NotesClient({ tag }: NotesClientProps) {
   const [page, setPage] = useState<number>(1);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  const { data, isLoading, isError, isSuccess } = useQuery({
+  const { data, isLoading, isError, isSuccess, error } = useQuery({
     queryKey: ["notes", page, debouncedQuery, tag],
     queryFn: () => getNotes(debouncedQuery, page, tag),
     placeholderData: keepPreviousData,
@@ -63,6 +65,8 @@ function NotesClient({ tag }: NotesClientProps) {
         </header>
       </div>
       <main>
+        {isLoading && <Loader />}
+        {isError && <Error error={error} />}
         {!isLoading && !isError && notes.length > 0 && (
           <NoteList notes={notes} />
         )}

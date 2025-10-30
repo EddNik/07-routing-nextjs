@@ -4,7 +4,8 @@ import { fetchNoteById } from "@/lib/api";
 import { useQuery } from "@tanstack/react-query";
 import { useParams, useRouter } from "next/navigation";
 import css from "./NoteDetails.module.css";
-import router from "next/router";
+import Loader from "@/app/loading";
+import Error from "./error";
 
 function NoteDetailes() {
   const { id } = useParams<{ id: string }>();
@@ -14,11 +15,22 @@ function NoteDetailes() {
     data: note,
     isError,
     isLoading,
+    error,
   } = useQuery({
     queryKey: ["note", id],
     queryFn: () => fetchNoteById(id),
     refetchOnMount: false,
   });
+
+  const formatDate = (isoDate: string) => {
+    return new Date(isoDate).toLocaleString("en-UA", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  };
 
   const handleGoBack = () => {
     const isSure = confirm("Are you sure?");
@@ -29,6 +41,8 @@ function NoteDetailes() {
 
   return (
     <>
+      {isLoading && <Loader />}
+      {isError && <Error error={error} />}
       {note && (
         <div className={css.container}>
           <div className={css.item}>
@@ -36,7 +50,7 @@ function NoteDetailes() {
               <h2>{note.title}</h2>
             </div>
             <p className={css.content}>{note.content}</p>
-            <p className={css.date}>{note.createdAt}</p>
+            <p className={css.date}>{formatDate(note.createdAt)}</p>
             <button className={css.button} onClick={handleGoBack}>
               Back
             </button>
