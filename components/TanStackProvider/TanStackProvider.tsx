@@ -25,9 +25,3 @@ function TanStackProvider({ children }: TanStackProviderProps) {
 }
 
 export default TanStackProvider;
-
-// Для типізації пропса children використовуємо стандартний тип React.ReactNode,
-//  який описує будь-який вміст, що може бути переданий в компонент: елементи,
-//  рядки, числа, масиви елементів або навіть інші компоненти.
-
-// The useState hook ensures the QueryClient is only created once per component lifecycle, preventing unnecessary recreations on re-renders.

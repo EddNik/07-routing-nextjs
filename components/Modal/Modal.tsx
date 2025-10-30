@@ -18,7 +18,6 @@ function Modal({ children, onClose }: ModalProps) {
     document.addEventListener("keydown", handleKeyDown);
     document.body.style.overflow = "hidden";
 
-    // Повертаємо функцію очищення ефекта відпрацьовує під час розмонтування компонента
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";

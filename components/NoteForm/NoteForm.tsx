@@ -53,14 +53,12 @@ function NoteForm({ onClose }: NoteFormProps) {
       .required("Tag required"),
   });
 
-  // 'actions' – набір методів, які надає Formik для керування формою.
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
       validationSchema={NoteValidationShema}
     >
-      {/* Formik надає компонент ErrorMessage, який можна розмістити під полем, щоб показувати текст помилки. */}
       <Form>
         <div className={css.formGroup}>
           <label htmlFor="title">Title</label>

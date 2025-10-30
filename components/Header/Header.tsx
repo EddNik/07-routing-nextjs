@@ -15,9 +15,6 @@ function Header() {
             </Link>
           </li>
           <li className={css.navigationItem}>
-            {/* <Link href="/notes" className={css.navigationLink}>
-              Notes
-            </Link> */}
             <Link href="/notes/filter/Notes" className={css.navigationLink}>
               Notes
             </Link>

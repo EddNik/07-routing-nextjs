@@ -28,7 +28,6 @@ function NotesClient({ tag }: NotesClientProps) {
     queryKey: ["notes", page, debouncedQuery, tag],
     queryFn: () => getNotes(debouncedQuery, page, tag),
     placeholderData: keepPreviousData,
-    // refetchOnMount => whether a query should automatically refetch its data when a component that uses the query mounts
     refetchOnMount: false,
   });
 

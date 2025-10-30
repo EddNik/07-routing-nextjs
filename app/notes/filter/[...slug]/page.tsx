@@ -1,4 +1,3 @@
-import NoteList from "@/components/NoteList/NoteList";
 import { getNotes } from "@/lib/api";
 import { NoteTag } from "@/types/note";
 import NotesClient from "../../Notes.client";
