@@ -4,6 +4,7 @@ import css from "./NotePreview.module.css";
 import { fetchNoteById } from "@/lib/api";
 import { useParams, useRouter } from "next/navigation";
 import Modal from "@/components/Modal/Modal";
+import Error from "./error";
 
 function NotePreviewClient() {
   const { id } = useParams<{ id: string }>();
@@ -37,7 +38,7 @@ function NotePreviewClient() {
   return (
     <Modal onClose={onClose}>
       {isLoading && <p>Loading, please wait...</p>}
-      {isError && <p>Something went wrong.</p>}
+      {isError && <Error error={error} />}
       <div className={css.container}>
         {note && (
           <div className={css.item}>

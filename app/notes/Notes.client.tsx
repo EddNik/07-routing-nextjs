@@ -24,7 +24,7 @@ function NotesClient({ tag }: NotesClientProps) {
   const [page, setPage] = useState<number>(1);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  const { data, isLoading, isError, error, isSuccess } = useQuery({
+  const { data, isLoading, isError, isSuccess } = useQuery({
     queryKey: ["notes", page, debouncedQuery, tag],
     queryFn: () => getNotes(debouncedQuery, page, tag),
     placeholderData: keepPreviousData,
