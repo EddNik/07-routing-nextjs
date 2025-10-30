@@ -22,6 +22,10 @@ function NotePreviewClient() {
     refetchOnMount: false,
   });
 
+  if (isLoading) return <Loader />;
+
+  if (isError) return <Error error={error} />;
+
   const onClose = () => {
     router.back();
   };
@@ -39,8 +43,6 @@ function NotePreviewClient() {
   return (
     <Modal onClose={onClose}>
       <div className={css.container}>
-        {isLoading && <Loader />}
-        {isError && <Error error={error} />}
         {note && (
           <div className={css.item}>
             <div className={css.header}>
