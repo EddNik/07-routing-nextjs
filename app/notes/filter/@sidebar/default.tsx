@@ -8,7 +8,7 @@ async function NotesSidebar() {
     <div>
       <ul className={css.menuList}>
         <li className={css.menuItem}>
-          <Link href={`/notes/filter/Notes`} className={css.menuLink}>
+          <Link href={`/notes/filter/all`} className={css.menuLink}>
             All notes
           </Link>
         </li>

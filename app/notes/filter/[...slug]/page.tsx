@@ -15,7 +15,7 @@ async function NotesByTag({ params }: NotesByTagProps) {
   const queryClient = new QueryClient();
   const { slug } = await params;
 
-  const tag = slug[0] === "Notes" ? undefined : (slug[0] as NoteTag);
+  const tag = slug[0] === "all" ? undefined : (slug[0] as NoteTag);
 
   await queryClient.prefetchQuery({
     queryKey: ["notes", "", 1, tag],

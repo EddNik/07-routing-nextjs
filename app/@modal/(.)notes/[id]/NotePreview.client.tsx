@@ -6,6 +6,7 @@ import { useParams, useRouter } from "next/navigation";
 import Modal from "@/components/Modal/Modal";
 import Error from "./error";
 import Loader from "@/app/loading";
+import { Note } from "@/types/note";
 
 function NotePreviewClient() {
   const { id } = useParams<{ id: string }>();
@@ -16,7 +17,7 @@ function NotePreviewClient() {
     isLoading,
     isError,
     error,
-  } = useQuery({
+  } = useQuery<Note>({
     queryKey: ["note", id],
     queryFn: () => fetchNoteById(id),
     refetchOnMount: false,

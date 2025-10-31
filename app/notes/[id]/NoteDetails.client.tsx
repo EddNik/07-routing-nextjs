@@ -6,6 +6,7 @@ import { useParams, useRouter } from "next/navigation";
 import css from "./NoteDetails.module.css";
 import Loader from "@/app/loading";
 import Error from "./error";
+import { Note } from "@/types/note";
 
 function NoteDetailes() {
   const { id } = useParams<{ id: string }>();
@@ -16,7 +17,7 @@ function NoteDetailes() {
     isError,
     isLoading,
     error,
-  } = useQuery({
+  } = useQuery<Note>({
     queryKey: ["note", id],
     queryFn: () => fetchNoteById(id),
     refetchOnMount: false,
