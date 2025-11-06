@@ -6,3 +6,24 @@
   border: 1px solid #ced4da;
   border-radius: 4px;
 }
+
+.btnClear {
+  color: #848689;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.8s,
+    visibility 0.8s;
+
+  &:hover {
+    color: #ff6b0a;
+  }
+}
+.btnClearVisible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
